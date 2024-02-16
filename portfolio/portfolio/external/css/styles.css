@@ -1,0 +1,302 @@
+nav{
+    font-family: 'Inria Sans', sans-serif !important;
+}
+
+.navbar-content{
+    background-color: rgb(137, 67, 67) !important;
+    padding: 20px;
+    margin: 0;
+}
+
+.div-h1
+{
+ color: white !important;
+ font-size: 30px;
+}
+
+.zura-text{
+    color: white !important;
+    text-decoration: none;
+    font-size: 30px;
+    margin-left: 20px;
+    transition: font-size 0.4s ease;
+}
+
+.zura-text:hover{
+    font-size: 32px;
+}
+
+.navbar-text{
+    margin-right: 20px;
+}
+
+
+.middle-part{
+    display: hidden !important;
+}
+
+.righter{
+    border-right: 1px solid white !important;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+.hero-section{
+    height: 100vh;
+
+}
+
+.give-link {
+    position: relative;
+    display: inline-block;
+    color: #f4ecec;
+    text-decoration: none;
+    font-size: 16px;
+    overflow: hidden;
+  }
+  
+  .give-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: white; 
+    transition: width 0.3s ease;
+  }
+  
+  .give-link:hover::before {
+    width: 100%;
+  }
+
+
+  .give-link-1 {
+    position: relative;
+    display: inline-block;
+    color:rgb(94, 94, 148) !important;
+    text-decoration: none;
+    font-size: 16px;
+    overflow: hidden;
+  }
+  
+  .give-link-1::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgb(94, 94, 148) !important;
+    transition: width 0.3s ease;
+  }
+  
+  .give-link-1:hover::before {
+    width: 100%;
+  }
+
+
+.hero-section{
+    background-image: url('../css/darksky.jpg');
+    background-repeat: none;
+    background-size: cover;
+  
+}
+
+.sd{
+    font-weight: bolder;
+}
+
+.hero-part{
+    font-family: 'Inria Sans', sans-serif !important;
+    margin: 0px auto;
+    display: block;
+}
+
+.left-section{
+    text-align:center;
+    display: block;
+    padding-top: 18%;
+}
+
+.right-section{
+    display: block;
+    padding-top: 12%;
+}
+
+.img-thumb-round{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    margin: 0px auto;
+}
+
+.power-section{
+    margin-top: 50px;
+    font-family: 'Inria Sans', sans-serif !important;
+}
+
+.odd-section{
+    background-color: white !important;
+    color:  rgb(97, 39, 39) !important;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.even-section{
+    background-color: rgb(97, 39, 39) !important;
+    color: white !important;
+    transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.odd-section:hover{
+    background-color:  rgb(97, 39, 39) !important;
+    color: white !important;
+}
+
+.even-section:hover{
+    background-color: white !important;
+    color: rgb(97, 39, 39) !important;
+}
+
+.main-ability{
+    text-align: center;
+}
+
+.ability-desc{
+    text-align: right;
+}
+
+.about-section{
+    margin-top: 50px;
+    height: 100vh;
+    background-color:  rgb(97, 39, 39) !important;
+    color: white !important;
+    font-family: 'Inria Sans', sans-serif !important;
+}
+
+.about-col{
+    height: 50vh;
+    border: 1px solid white;
+    transition: background-color 0.5s ease;
+}
+
+.about-col:hover{
+    background-color: white;
+    color: rgb(97, 39, 39) !important;
+}
+
+.about-me-col{
+    background-color:  white;
+    color: rgb(97, 39, 39) !important;
+    border: 1px solid  rgb(97, 39, 39);
+}
+
+.hover-text{
+    color: rgb(97, 39, 39) !important;
+}
+
+.works-section{
+    font-family: 'Inria Sans', sans-serif !important;
+    color: rgb(97, 39, 39) !important;
+}
+
+.project{
+    color: rgb(97, 39, 39) !important;
+}
+
+.work-wth-me-section{
+    margin-top: 25px;
+    background-color: rgb(97, 39, 39) !important;
+    color: white !important;
+    height: 50vh;
+    margin: 0px auto;
+    display: block;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.left-work-section{
+    padding-top: 8vh;
+    margin-left: 25px;
+}
+
+.work-with-me-text{
+    color: white;
+    font-family: 'Inria Sans', sans-serif !important;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-size: 64px;
+}
+
+.text-name{
+    background-color: rgb(97, 39, 39) !important;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 50%;
+    color: white;
+}
+
+.submit{
+    margin-left: 5px;
+    margin-top: 10px;
+    background-color:  rgb(97, 39, 39);
+    color: white;
+    border: 1px solid white;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: padding 0.4s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit:hover{
+    padding: 10px;
+    background-color: white;
+    color: rgb(97, 39, 39);
+}
+
+.form{
+    display: inline-block;
+}
+
+.carder{
+    border: 1px solid rgb(97, 39, 39);
+}
+
+.content{
+    background-color: rgb(97, 39, 39) !important;
+    color: white !important;
+    font-family: 'Inria Sans', sans-serif !important;
+}
+
+.btn-site{
+    background-color: rgb(97, 39, 39) !important;
+    color: white !important;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid white;
+}
+
+.eye{
+    color:  rgb(97, 39, 39) !important;
+    text-decoration: none;
+}
+
+.footer{
+    margin-top: 50px;
+    color:  rgb(97, 39, 39) !important;
+    font-family: 'Inria Sans', sans-serif !important;
+    text-align: right;
+}
+
+.offcanvas-content{
+    background-color:  rgb(97, 39, 39) !important;
+    font-family: 'Inria Sans', sans-serif !important;
+    color: white !important;
+}
