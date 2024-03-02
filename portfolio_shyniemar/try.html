@@ -1,0 +1,1651 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>SHY</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="assets2/css/cutekut.css">
+  <link rel="stylesheet" href="assets2/css/about.css">
+  <link href="assets2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets2/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets2/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets2/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets2/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets2/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="assets2/vendor/aos/aos.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Ultra&display=swap" rel="stylesheet">
+
+<body>
+          <audio id="backgroundMusic" controls>
+        Your browser does not support the audio tag.
+    </audio>
+
+    <button id="musicControlButton" onclick="toggleMusic()">Toggle Music</button>
+
+ <script>
+    const backgroundMusic = document.getElementById("backgroundMusic");
+    const musicControlButton = document.getElementById("musicControlButton");
+
+    const musicList = [
+        "../Admin/assets/audio/audio1.mp3",
+        "../Admin/assets/audio/audio2.mp3",
+        "../Admin/assets/audio/audio3.mp3"
+    ];
+
+    function toggleMusic() {
+        if (backgroundMusic.paused) {
+            playRandomMusic();
+        } else {
+            backgroundMusic.pause();
+        }
+    }
+
+    function playRandomMusic() {
+        const randomIndex = Math.floor(Math.random() * musicList.length);
+
+        backgroundMusic.src = musicList[randomIndex];
+        
+        backgroundMusic.volume = 0.3;
+        
+        backgroundMusic.play();
+
+        setInterval(() => {
+            const newIndex = Math.floor(Math.random() * musicList.length);
+            backgroundMusic.src = musicList[newIndex];
+            
+            backgroundMusic.volume = 0.5;
+            
+            backgroundMusic.play();
+        }, 20000);
+    }
+
+    window.onload = function () {
+        playRandomMusic();
+        toggleMusic();
+    };
+
+    backgroundMusic.style.display = "none";
+    musicControlButton.style.display = "none";
+</script>
+
+<style>
+  .header-container{
+    border-radius:  40px;
+    width: 80%;
+    margin: 0px auto;
+  }
+  .logo{
+    border-radius:  40px;
+  }
+  
+</style>
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container">
+        <div class="header-container d-flex align-items-center justify-content-between">
+            <div class="logo" data-aos="fade-in"  style="margin-left: 0px;">
+                <h1 class="text-light"><a data-aos="fade-right" href="index.php"><span>SH</span></a></h1>
+            </div>
+
+            <nav id="navbar" data-aos="fade-in"  class="navbar">
+                <ul>
+                <li><a class="nav-link scrollto active" href="#">About Me</a></li>
+                  <li><a class="nav-link scrollto" href="index.php#services">Resume</a></li>
+                    <li class="dropdown"><a href="index.php#about"><span>Work</span> </i></a>
+                         <li>
+                        <a class="signup scrollto" href=""><span>Get in Touch</span></a>
+                    </li>
+                    
+                    </ul>
+                    <style>
+           
+                      ul li a {
+                          text-decoration: none; 
+                      }
+
+                      ul li a span {
+                          font-weight: bold;
+                      }
+                      </style>
+                    <!-- <style>
+
+                        ul{
+                        margin:0;
+                        padding:0;
+                        display:flex;
+                        }
+
+                        ul li{
+                        list-style:none;
+                        margin:0 10px;
+                        transition:0.5s;
+                        }
+
+                        ul li a{
+                        display: block;
+                        position:relative;
+                        text-decoration:none;
+                        padding:5px;
+                        font-size:12px;
+                        font-family: sans-serif;
+                        color:#fff;
+                        text-transform:uppercase;
+                        transition:0.5s;
+                        }
+
+                        ul:hover li a{
+                        transform:scale(1.5);
+                        opacity:0.2;
+                        filter:blur(5px);
+                        }
+
+                        ul li a:hover{
+                        transform:scale(2);
+                        opacity:1;
+                        filter:blur(0);
+                        text-decoration:none;
+                        color:#fff;
+                        }
+
+                        ul li a:before{
+                        content:'';
+                        position:absolute;
+                        top:0;
+                        left:0;
+                        width:100%;
+                        height:100%;
+                        background:#79c2e1;
+                        transition:0.5s;
+                        transform-origin:right;
+                        transform:scaleX(0);
+                        z-index:-1;
+                        }
+
+                        ul li a:hover:before{
+                        transition:transform 0.5s;
+                        transform-origin:left;
+                        transform:scaleX(1);
+                        }
+                    </style> -->
+                    
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </div>
+</header>
+<style>
+li a.signup.scrollto {
+    text-align: center;
+    display: block;
+}
+</style>
+
+
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="portfolio">
+
+      <main>
+        <section class="page photographer">
+          <div  class="details">
+            <style>
+              * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+              }
+      
+              h2, p {
+                  margin-bottom: -10px; 
+                  font-weight: 0;
+                 font-style: italic;
+              }
+              
+            p {
+                  margin-bottom: -10px; 
+                  font-weight: 0;
+                   font-style: italic;
+              }
+      
+              .page  h1, h2 {
+                  font-size: 80px!important; 
+                  font-family: "Permanent Marker", cursive;
+                  font-weight: 400;
+                  font-style: normal;
+              }
+      
+              h2 {
+                  font-size: 24px; 
+              }
+      
+              p {
+                  font-size: 16px;
+              }
+              .page .get,
+              .page .get:focus {
+                background: #da5c3a;
+                padding: 12px 100px; /* Padding */
+                margin: 0px auto !important;
+                font-family: "Libre Baskerville", serif;
+                font-weight: 400;
+                font-style: italic;
+                font-size: 25px;
+                border-radius: 50px; /* Border radius */
+                color: #fff; /* Text color */
+                text-decoration: none;
+              }
+
+              .page .get:hover,
+              .page .get:focus:hover {
+                background: #e18f23; /* Change background color on hover */
+              }
+
+              .navbar .get:hover,
+              .navbar .get:focus:hover {
+                color: green;
+                background: green;
+              }
+              .page .get2,
+              .page .get2:focus {
+                background: #f3c635;
+                padding: 12px 80px; /* Padding */
+                margin: 0px auto !important;
+                font-family: "Libre Baskerville", serif;
+                font-weight: 400;
+                font-style: italic;
+                font-size: 25px;
+                border-radius: 50px 10px; /* Border radius */
+                color: #fff; /* Text color */
+                text-decoration: none;
+              }
+
+              .page .get2:hover,
+              .page .get2:focus:hover {
+                background: #e18f23; 
+              }
+
+              .navbar .get2:hover,
+              .navbar .get2:focus:hover {
+                color: green;
+                background: green;
+              }
+                .left-d{
+                  position: absolute;
+                  top: 300px;
+                  left: 50%;
+                }
+
+                .right-d{
+                  position: absolute;
+                  top: 400px;
+                  left: 80%;
+                }
+              </style>
+
+            <h1 data-aos="fade-right" >HELLO, </h1>
+            <h2 data-aos="fade-right" >I'M SHY</h2>
+            <p data-aos="fade-up" >Creative Designer
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis sint, vero possimus dignissimos quia officia voluptas quaerat eligendi.</p>
+            <a data-aos="fade-up"  class="get"  href=""><span >hire me in</span></a>
+          </div>
+          
+          <div class="left-d" data-aos="fade-left" >
+            <a class="get2" href=""><span>JULY, 17, 2000</span></a>
+          </div>
+
+          <div class="hero">
+            <img style="position: absolute; top: 150px; left: 60%;" class="model-left"
+              src="assets2/img/R.png"
+              alt="model"
+            />
+            <img style="position: absolute; top: 150px; left: 75.5%;" 
+              class="model-right"
+              src="assets2/img/L.png"
+              alt="model"
+            />
+          </div>
+          <div class="right-d" data-aos="fade-right">
+            <a class="get2" href=""><span>TAGALOG</span></a>
+          </div>
+        </section>
+        </aside>
+      </main>
+    </div>
+  </div>
+</section>
+
+    <section id="blackspace" class="blackspace">
+      <div class="container">
+
+        <div class="row counters">
+
+          <div class="col-lg-2 col-2 text-center">
+             <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</section>
+<!-- End Services Section -->
+
+<style>
+  #aboutmecute{
+    background-color: #334B35;
+    height: 100vh;
+  }
+
+@media (max-width: 768px) {
+    #education2 {
+        height: 100vh;
+    }
+}
+  #experiences{
+    background-color: #334B35;
+  }
+
+</style>
+<section id="aboutmecute">
+  <div class="margin-up">
+    <div class="person">
+      <div class="container cutekut">
+        <div class="container-inner">
+          <img class="circle" data-aos="zoom-out-down" src="assets2/img/darksky.jpg" />
+          <img class="image img2"  src="assets2/img/cute.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="divider" data-aos="zoom-out-down"></div>
+  <div class="name" data-aos="zoom-out-down">ABOUT ME</div>
+  <div class="title" data-aos="zoom-out-down">as a Creative Designer</div>
+  </section>
+
+  <style>
+.education2 {
+  margin-top: -520px;
+  position: absolute;
+  left: 7%;
+  width: 86%; 
+  font-family: "Libre Baskerville", serif;
+  color: #ffff;
+}
+
+.education2 h2 {
+  color: #da5c3a;
+  margin-left: 0; 
+  padding-left: 2%; 
+
+}
+.education2 h2:hover {
+ color: #cfe10a;
+ padding-left: 20px;
+  
+}
+.achievement-list {
+  list-style-type: none;
+  padding: 20;
+}
+
+.achievement-list li {
+  margin-bottom: 20px;
+  display: flex; 
+  align-items: center; 
+}
+
+/* Styles for the year */
+.year {
+  font-weight: bold;
+  margin-right: 20px; /* Adjusted margin to move it slightly left */
+  width: 100px; /* Adjust width as needed */
+}
+
+/* Styles for the information container */
+.info {
+  display: inline-block;
+}
+
+/* Styles for the title */
+.achievement-list .info {
+  font-weight: bold;
+  margin-top: 20px!important;
+}
+/* Styles for the description */
+.description {
+  font-style: italic;
+  color: #b1adad; 
+}
+
+/* Styles for the star-shape  */
+.star-shape {
+  width: 40px;
+  height: 40px; 
+  font-size: 32px; 
+  color: #da5c3a;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 1; 
+  position: relative;
+}
+
+.star-shape::before {
+  content: '\2605'; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+  </style>
+<section id="education2" class="education2">
+  <h2>education</h2>
+  <ul class="achievement-list">
+    <li>
+      <div class="star-shape"></div>
+      <span class="year">2020-2023</span>
+      <div class="info">
+        <span class="title">Digital Campus</span><br>
+        <span class="description">Digital Web Designing</span>
+      </div>
+    </li>
+    <li>
+      <div class="star-shape"></div>
+      <span class="year">2020-2023</span>
+      <div class="info">
+        <span class="title">Digital Campus</span><br>
+        <span class="description">Digital Web Designing Digital Web Designing</span>
+      </div>
+    </li>
+    <li>
+      <div class="star-shape"></div>
+      <span class="year">2020-2023</span>
+      <div class="info">
+        <span class="title">Digital Campus</span><br>
+        <span class="description">Digital Web Designing</span>
+      </div>
+    </li>
+  </ul>
+
+  <style>
+    .shylogo{
+      position: absolute;
+      left: 50%;
+      top: -10%;
+      width: 200px;
+      height: 20vh;
+    }
+    .shylogo2{
+      position: absolute;
+      left: 70%;
+      top: -10%;
+    }
+    .lettering {
+  display: inline-block;
+}
+
+.letter {
+  display: inline-block;
+  font-size: 40px; /* Adjust font size as needed */
+  font-weight: bold;
+  padding: 0 2px; /* Adjust the padding for the transparent space */
+  color: transparent; /* Set text color */
+  outline: 2px black;
+  text-shadow: 
+    -1px -1px 0 white,
+     1px  1px 0 white; 
+  -webkit-text-stroke: 2px black; 
+}
+
+
+  </style>
+  <div class="shylogo">
+ <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWh0Y21kcm5rdGk5MmRhdWozbXNwMGd2M3dhdG04NTMxajdzMWpmNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dHM/vytXZ0KSi6cawaCBvI/giphy.gif" alt=""> 
+</div>
+
+<div class="shylogo2">
+  <img src="https://media1.giphy.com/media/OhUCYJ8LaD9s31HcMJ/giphy.gif?cid=ecf05e47dm34okiqxm2mo501rploslivu0fk5mkgbdkswftp&ep=v1_gifs_related&rid=giphy.gif&ct=ts" alt="">
+ </div>
+ <div class="lettering">
+  <div class="letter">R</div>
+  <div class="letter">E</div>
+  <div class="letter">S</div>
+  <div class="letter">U</div>
+  <div class="letter">M</div>
+  <div class="letter">E</div>
+</div>
+
+<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWFtdDNzMGFvZGE3ZGg4aGZ0MTN6MzhxcXp2bzkwdnNtZnJvOXYwNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BHNfhgU63qrks/giphy.gif" alt="">
+<!-- Technical Skills -->
+<div class="technical-skills">
+  <h2>Technical Skills</h2>
+  <div class="skills-container">
+    <div class="software-skills">
+      <h3>Software Skills</h3>
+      <div class="ai-container">
+        <a class="petchang" href=""><span>Ai</span></a>
+        <a class="petchang" href=""><span>Id</span></a>
+        <a class="petchang" href=""><span>PS</span></a>
+      </div>
+      <div class="ai-container">
+        <a class="petchang" href=""><span>XD</span></a>
+        <a class="petchang" href=""><span>PR</span></a>
+        <a class="petchang" href=""><span>MS</span></a>
+      </div>
+      <style>
+        .tech-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          flex-direction: row; /* Ensuring left-to-right display */
+        }
+        
+        .tech {
+          width: 48%; /* Adjust the width to fit two items in a row */
+          margin-bottom: 10px;
+          margin-top: 10px!important;
+          background-color: #f0f0f0;
+          padding: 10px;
+          border-radius: 5px;
+          text-align: center;
+          font-family: "Libre Baskerville", serif;
+          font-weight: 400;
+          font-style: italic;
+          font-size: 13px;
+          border-radius: 50px;
+          color: #fff;
+          background-color: #000000;
+          text-decoration: none;
+        }
+        
+        .tech:nth-child(odd) {
+          margin-right: 2%;
+        }
+      
+        .tech:nth-child(even) {
+          margin-left: 2%;
+        }
+        
+        .tech:hover,
+        .tech:focus:hover {
+          background: #ffffff;
+          color: #000000;
+        }
+      </style>
+      <div class="tech-container">
+        <a class="tech" href=""><span>UX/UI DESIGNER</span></a>
+        <a class="tech" href=""><span>VISUAL DESIGNING</span></a>
+        <a class="tech" href=""><span>USER RESEARCH</span></a>
+        <a class="tech" href=""><span>PACKAGING</span></a>
+      </div>
+      
+      
+<style>
+.software-skills {
+  width: 100%;
+}
+
+.ai-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.petchang {
+  width: calc(23.33% - 5px);
+  background-color: #0f0e0e;
+  padding: 10px;
+  margin-right: 5px; 
+  border-radius: 5px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.petchang:hover {
+  background-color: #ffffff;
+  color: #000000;
+  padding-inline-start: 2%;
+  transition: 0.3 ease;
+}
+</style>
+
+
+      </div>
+      <div class="coding-skills">
+        <h3>Coding Skills</h3>
+        <h6>Basic knowledge of:</h6>
+        <div class="row">
+            <div class="col-sm-6">
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <ul>
+                    <li>C++</li>
+                    <li>PHP</li>
+                    <li>Vb.NET</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+</section>
+<style>
+
+.technical-skills {
+  float: right;
+  width: 50%;
+  margin-top: -200px;
+  color: #ffff;
+}
+
+.technical-skills h2 {
+  color: #da5c3a;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.technical-skills h2:hover {
+ color: #cfe10a;
+ padding-left: 20px;
+  
+}
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.software-skills,
+.coding-skills {
+  width: 48%; /* Adjust width as needed */
+}
+
+.software-skills h3,
+.coding-skills h3 {
+  margin-bottom: 10px;
+}
+
+</style>
+
+<style>
+  .experiences {
+    font-family: "Libre Baskerville", serif;
+    color: #000000;
+  }
+
+  .card-content h2 {
+    position: relative;
+    margin-top: 0px;
+    color: #000000!important;
+  }
+
+  .card-content h2:hover {
+    color: #edeca0d0!important;
+  }
+
+  /* Styles for the list of achievements */
+  .achievement-experience-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .experience-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .achievement-experience-list li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .achievement-experience-list .year {
+    font-weight: bold;
+    margin-right: 20px;
+    width: 100px;
+    flex-shrink: 0; /* Prevents the year from shrinking */
+  }
+
+  .achievement-experience-list .info {
+    flex-grow: 1; /* Allows the info to grow */
+  }
+
+  .achievement-experience-list .info .title {
+    font-weight: bold;
+    color: #000000!important;
+  }
+
+  .achievement-experience-list .info .description {
+    font-style: italic;
+    color: #555;
+  }
+
+  /* Styles for the experience star-shape  */
+  .Estar-shape {
+    width: 40px;
+    height: 40px;
+    font-size: 32px;
+    color: #ffffff;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 1;
+    position: relative;
+  }
+
+  .Estar-shape::before {
+    content: '\2605';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Hashtag styles */
+  .hashtag-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .achievement-experience-list .year {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .achievement-experience-list .info {
+      flex-basis: calc(100% - 110px); /* Adjusted based on year width */
+    }
+  }
+</style>
+
+<section id="experiences" class="experiences">
+  <div class="experience-card">
+    <div class="card-content">
+      <h2>Experiences</h2>
+      <ul class="achievement-experience-list">
+        <li>
+          <div class="Estar-shape"></div>
+          <span class="year">2020-2023</span>
+          <div class="info">
+            <span class="title">Digital Campus</span><br>
+            <span class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, dolorem eos, fuga itaque iusto </span>
+          </div>
+        </li>
+        <li>
+          <div class="Estar-shape"></div>
+          <span class="year">2020-2023</span>
+          <div class="info">
+            <span class="title">Digital Campus</span><br>
+            <span class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel temporibus possimus neque voluptates eveniet  ipsam.</span>
+          </div>
+        </li>
+        <li>
+          <div class="Estar-shape"></div>
+          <span class="year">2020-2023</span>
+          <div class="info">
+            <span class="title">Digital Campus</span><br>
+            <span class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quisquam molestiae. </span>
+          </div>
+        </li>
+      </ul>
+      <div class="hashtag-container">
+        <a class="hashtag" href=""><span>#Communication</span></a>
+        <a class="hashtag" href=""><span>#Creativity</span></a>
+        <a class="hashtag" href=""><span>#Adaptability</span></a>
+        <a class="hashtag" href=""><span>#Leadership</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- style ha hastag dayang -->
+<style>
+  .hashtag-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.hashtag {
+  margin-bottom: 10px; /* Adjust margin as needed */
+  margin-top: 10px!important; /* Adjust margin as needed */
+  background-color: #f0f0f0; /* Adjust background color as needed */
+  padding: 10px; /* Adjust padding as needed */
+  border-radius: 5px; /* Adjust border radius as needed */
+  text-align: center;
+  
+}
+
+.hashtag:nth-child(n+3) {
+  margin-top: auto;
+}
+
+   .experiences .hashtag,
+  .experiences .hashtag:focus {
+    background: #000000;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+    border-radius: 50px 50px; 
+    color: #fff; /* Text color */
+    text-decoration: none;
+  }
+
+  .experiences .hashtag:hover,
+  .experiences .hashtag:focus:hover {
+    background: #eeee11; 
+    color: #000000;
+  }
+
+</style>
+
+<style>
+.experience-card {
+  width: 590px;
+  height: 500px;
+  background: #e18f23; 
+  position: absolute;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  z-index: 2; /* Set a higher z-index to ensure it's above other elements */
+  top: 1500px; /* Initial position from the top */
+  left: 50%; /* Initially centered horizontally */
+  transform: translateX(-50%);
+}
+
+
+@media (max-width: 768px) {
+  .experience-card {
+    width: 90%; /* Adjust width for smaller screens */
+    max-width: 590px; /* Limit maximum width */
+    height: 90%; /* Allow height to adjust based on content */
+    top: 2500px; /* Maintain the same initial position from the top */
+    left: 200%; /* Center horizontally */
+    transform: translateX(-50%);
+  }
+  .education2{
+    height: 100vh;
+  }
+}
+
+/* Ensure that the content is visible on top of the ::after pseudo-element */
+.experience-card .card-content {
+  position: relative;
+  z-index: 3; /* Set a higher z-index to ensure it's above the ::after pseudo-element */
+}
+
+.experience-card h2 {
+  z-index: 1;
+  color: white;
+  font-size: 2em;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  background-image: linear-gradient(180deg,#334B35, #F6EEE1);
+  height: 130%;
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.experience-card::after {
+  content: '';
+  position: absolute;
+  background: #e18f23; 
+  inset: 5px;
+  border-radius: 15px;
+}  
+</style>
+<!-- styles for Activities -->
+<style>
+    #activities{
+    margin-top: 0;
+    height: 100vh;
+    background-color: #F6EEE1!important;
+  }
+  .activities-content{
+    position: relative;
+    top: 240px;
+    left: 100px;
+  }
+  .activities {
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #F6EEE1;
+    margin-top: -200px;
+  }
+  .activities {
+    font-family: "Libre Baskerville", serif;
+    color: #000000;
+  }
+  
+  .activities h2 {
+    color: #000000;
+    margin-left: 0; 
+    padding-left: 2%; 
+  
+  }
+  .activities h2:hover {
+   color: #da5c3a;
+   padding-left: 20px;
+    
+  }
+  .activities_achievement-list {
+    list-style-type: none;
+    padding: 20;
+  }
+  
+  .activities_achievement-list li {
+    margin-bottom: 20px;
+    display: flex; 
+    align-items: center; 
+  }
+  
+  /* Styles for the year */
+  .activities.year {
+    font-weight: bold;
+    margin-right: 20px; /* Adjusted margin to move it slightly left */
+    width: 100px; /* Adjust width as needed */
+  }
+  
+  /* Styles for the information container */
+  .activities .info {
+    display: inline-block;
+  }
+  
+  /* Styles for the title */
+  .activities_achievement-list .info {
+    font-weight: bold;
+    margin-top: 20px!important;
+  }
+  /* Styles for the description */
+  .activities .description {
+    font-style: italic;
+    color: #000000; 
+  }
+  .activities .title {
+    font-style: italic;
+    color: #000000; 
+  }
+  
+  /* Styles for the star-shape  */
+  .star-shape {
+    width: 40px;
+    height: 40px; 
+    font-size: 32px; 
+    color: #da5c3a;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 1; 
+    position: relative;
+  }
+  
+  .star-shape::before {
+    content: '\2605'; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+    </style>
+    </div>
+  </div>
+</div>
+
+<section id="activities" class="activities">
+  <div class="activities-content">
+    <h2>Activities</h2>
+    <ul class="activities_achievement-list">
+      <li>
+        <div class="star-shape"></div>
+        <span class="year">2020-2023</span>
+        <div class="info">
+          <span class="title">Digital Campus</span><br>
+          <span class="description">Digital Web Designing</span>
+        </div>
+      </li>
+      <li>
+        <div class="star-shape"></div>
+        <span class="year">2020-2023</span>
+        <div class="info">
+          <span class="title">Digital Campus</span><br>
+          <span class="description">Digital Web Designing Digital Web Designing</span>
+        </div>
+      </li>
+      <li>
+        <div class="star-shape"></div>
+        <span class="year">2020-2023</span>
+        <div class="info">
+          <span class="title">Digital Campus</span><br>
+          <span class="description">Digital Web Designing</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+ <!-- Languages Skills Section -->
+<div class="languages-skills">
+  <h2>LANGUAGES</h2>
+  <div class="skills-languages">
+    <div class="languages-list">
+      <h3>LANGUAGES</h3>
+      <div class="languages-container">
+        <div class="language">
+          <div class="english">
+            <h1>English</h1>
+            <p>Fluent</p>
+          </div>
+        </div>
+        <div class="language">
+          <div class="filipino">
+            <h1>Filipino</h1>
+            <p>Fluent</p>
+          </div>
+        </div>
+        <div class="language">
+          <div class="english">
+            <h1>Bisaya</h1>
+            <p>Fluent</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Hobbies Skills Section -->
+<div class="hobbies-skills">
+  <h2>HOBBIES</h2>
+  <div class="skills-hobbies">
+    <div class="hobbies-list">
+      <h3>Hobbies</h3>
+      <div class="hobbies-container">
+        <div class="hobbies">
+          <div class="hobbies1">
+            <h1>Hobbies 1</h1>
+            <p>Hobbies</p>
+          </div>
+        </div>
+        <div class="hobbies">
+          <div class="hobbies2">
+            <h1>Hobbies 2</h1>
+            <p>Hobbies</p>
+          </div>
+        </div>
+        <div class="hobbies">
+          <div class="hobbies3">
+            <h1>Hobbies 3</h1>
+            <p>Hobbies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.hobbies-skills {
+  width: 48%;
+  float: right; 
+  margin-right: 20px; 
+  color: #ffff;
+  position: relative;
+}
+
+.skills-hobbies {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hobbies-skills h2 {
+  color: #000000;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.hobbies-skills h3 {
+  color: #000000;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hobbies-skills h2:hover {
+  color: #cfe10a;
+  padding-left: 20px;
+}
+
+.skills-hobbies {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hobbies-list {
+  width: 100%;
+}
+
+.hobbies-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.hobbies {
+  width: 30%;
+ 
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hobbies h1 {
+  margin-bottom: 20px;
+  color: #000000;
+  font-weight: bold;
+}
+
+.hobbies p {
+  margin: 0;
+  font-size: 18px; /* Adjust font size */
+  color: #666;
+}
+
+/* Media Query */
+@media screen and (max-width: 768px) {
+  .hobbies {
+    width: 100%;
+    margin-right: 0; /* Remove margin-right for responsiveness */
+  }
+}
+
+</style>
+</section>
+
+<style>
+.language {
+  width: 30%; 
+  margin-bottom: 20px; 
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.language h1 {
+  margin-bottom: 5px;
+  color: #000000;
+  font-weight: bolder;
+}
+
+.language p {
+  margin: 0;
+  font-size: 24px;
+  color: #666;
+}
+
+@media screen and (max-width: 768px) {
+  .language {
+    width: 100%; 
+  }
+}
+.skills-languages {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+  .languages-skills {
+    width: 48%;
+    position: absolute;
+    color: #ffff;
+    left: 50%;
+    top: 250%;
+  }
+
+  .languages-skills h2 {
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .languages-skills h3 {
+    color: #000000;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  
+
+  .languages-skills h2:hover {
+    color: #cfe10a;
+    padding-left: 20px;
+  }
+
+  .skills-languages {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .languages-list {
+    width: 100%;
+  }
+
+  .languages-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .dayang {
+    width: calc(33.33% - 5px);
+    background-color: #0f0e0e;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .dayang:hover {
+    background-color: #ffffff;
+    color: #000000;
+    padding-inline-start: 2%;
+    transition: 0.3s ease;
+  }
+
+  @media screen and (max-width: 768px) {
+    .activities, .languages-skills {
+      width: 100%;
+    }
+
+    .languages-skills h2 {
+      margin-top: 20px;
+    }
+
+    .dayang {
+      width: calc(50% - 5px);
+    }
+  }
+</style>
+<!-- 
+
+  <style>
+  .education {
+    background-color: #1d4d0a;
+    height: 100vh;
+  }
+  </style>
+    <section id="education" class="education">
+     
+    </section> -->
+
+
+    <section id="cutedayang" class="cutedayang">
+ <!-- yari dugaing section nasab  -->
+ <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+ <section class="section-blur">
+   <div class="card-grid">
+     <a class="card" data-aos="flip-left" href="#">
+       <div class="card__background" style="background-image: url(assets2/img/galaxy-space.gif)"></div>
+       <div class="card__content">
+         <p class="card__category">work</p>
+         <h3 class="card__heading">Adobe Artworks</h3>
+       </div>
+     </a>
+     <a class="card" data-aos="flip-left" href="#">
+       <div class="card__background" style="background-image: url(assets2/img/1.gif)"></div>
+       <div class="card__content">
+         <p class="card__category">logo</p>
+         <h3 class="card__heading">logo Artworks</h3>
+       </div>
+     </a>
+     <a class="card" data-aos="flip-right" href="#">
+       <div class="card__background" style="background-image: url(assets2/img/2.gif)"></div>
+       <div class="card__content">
+         <p class="card__category">Category</p>
+         <h3 class="card__heading">Example Card Heading</h3>
+       </div>
+     </li>
+     <a class="card" data-aos="flip-right" href="#">
+       <div class="card__background" style="background-image: url(assets2/img/3.gif)"></div>
+       <div class="card__content">
+         <p class="card__category">Category</p>
+         <h3 class="card__heading">Example Card Heading</h3>
+       </div>
+     </a>
+   <div>
+ </section>
+ 
+ <!-- yari css code niya -->
+ <style>
+  .cutedayang {
+    background-color: #334B35;
+    height: 100vh;
+  }
+   :root{
+   --background-dark: #2d3548;
+     --text-light: rgba(255,255,255,0.6);
+     --text-lighter: rgba(255,255,255,0.9);
+     --spacing-s: 8px;
+     --spacing-m: 16px;
+     --spacing-l: 24px;
+     --spacing-xl: 32px;
+     --spacing-xxl: 64px;
+     --width-container: 1200px;
+   }
+   .section-blur{
+   align-items: flex-start;
+   display: flex;
+   min-height: 100%;
+   justify-content: center;
+   padding: var(--spacing-xxl) var(--spacing-l);
+ }
+ 
+ .card-grid{
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+   grid-column-gap: var(--spacing-l);
+   grid-row-gap: var(--spacing-l);
+   max-width: var(--width-container);
+   width: 100%;
+ }
+ 
+ @media(min-width: 540px){
+   .card-grid{
+     grid-template-columns: repeat(2, 1fr); 
+   }
+ }
+ 
+ @media(min-width: 960px){
+   .card-grid{
+     grid-template-columns: repeat(4, 1fr); 
+   }
+ }
+ 
+ .card{
+   list-style: none;
+   position: relative;
+ }
+ 
+ .card:before{
+   content: '';
+   display: block;
+   padding-bottom: 150%;
+   width: 100%;
+ }
+ 
+ .card__background{
+   background-size: cover;
+   background-position: center;
+   border-radius: var(--spacing-l);
+   bottom: 0;
+   filter: brightness(0.75) saturate(1.2) contrast(0.85);
+   left: 0;
+   position: absolute;
+   right: 0;
+   top: 0;
+   transform-origin: center;
+   transform: scale(1) translateZ(0);
+   filter: 200ms linear;
+   transform: 200ms linear;
+ }
+ 
+ .card:hover .card__background{
+   transform: scale(1.05) translateZ(0);
+ }
+ 
+ .card-grid:hover > .card:not(:hover) .card__background{
+   filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+ }
+ 
+ .card__content{
+   left: 0;
+   padding: var(--spacing-l);
+   position: absolute;
+   top: 0;
+ }
+ 
+ .card__category{
+   color: var(--text-light);
+   font-size: 0.9rem;
+   margin-bottom: var(--spacing-s);
+   text-transform: uppercase;
+ }
+ 
+ .card__heading{
+   color: var(--text-lighter);
+   font-size: 1.9rem;
+   text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+   line-height: 1.4;
+   word-spacing: 100vw;
+ }
+ </style>
+    </section>
+  </main>
+  <style>
+    #footer{
+      background-color: #F6EEE1;
+      height: 30vh;
+    }
+  </style>
+  
+  <footer id="footer">
+    
+            </style>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Function to position the experience card
+function positionExperienceCard() {
+    // Get the viewport dimensions
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    // Get a reference to the experience card
+    var experienceCard = document.querySelector('.experience-card');
+
+    // Calculate the left position to center the card horizontally
+    var leftPosition = (viewportWidth - experienceCard.offsetWidth) / 2;
+
+    // You can adjust these values based on your requirements
+    experienceCard.style.top = '215%'; // Adjust as needed
+    experienceCard.style.left = '25.5%'; // Adjust left position here
+
+    // If you want to use the centered horizontal position, you can uncomment the line below
+    // experienceCard.style.left = leftPosition + 'px';
+}
+
+// Call the function initially and whenever the window is resized
+window.addEventListener('resize', positionExperienceCard);
+window.addEventListener('load', positionExperienceCard);
+
+</script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script src="assets2/js/about.js"></script>
+  <script src="assets2/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets2/vendor/aos/aos.js"></script>
+  <script src="assets2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets2/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets2/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets2/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets2/vendor/php-email-form/validate.js"></script>   
+  <script src="assets2/js/main.js"></script>
+
+</body>
+<script>
+  AOS.init();
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</html>
+
+
+
+<style>
+  .cutekut {
+position: relative;
+text-align: center;
+}
+
+.card-cute{
+background-color: #f2f2f2;
+padding: 20px;
+border-radius: 10px; 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+width: 100%; 
+text-align: left; 
+position: absolute;
+bottom: 0;
+left: 20%!important;
+transform: translateX(-50%); 
+}
+p{
+font-size: 2rem;
+}
+.container-inner .name .title{
+margin-bottom: 20px;
+
+}
+
+#aboutmecute {
+align-items: center;
+display: flex;
+font-family: "Merriweather", serif;
+flex-wrap: wrap;
+justify-content: center;
+/* /* margin-bottom: 100px;
+margin-top: 100px; */
+}
+.person {
+align-items: center;
+display: flex;
+flex-direction: column;
+width: 280px;
+margin-top: -450px;
+}
+.cutekut {
+border-radius: 50%;
+height: 312px;
+-webkit-tap-highlight-color: transparent;
+transform: scale(0.48);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+width: 500px;
+}
+/* .cutekut:after {
+background-color: #67834a;
+content: "";
+height: 10px;
+position: absolute;
+top: 390px;
+width: 100%;
+} */
+.cutekut:hover {
+transform: scale(0.54);
+}
+.container-inner {
+clip-path: path(
+"M 390,400 C 390,504.9341 304.9341,590 200,590 95.065898,590 10,504.9341 10,400 V 10 H 200 390 Z"
+);
+position: relative;
+transform-origin: 60%;
+top: -58px;
+}
+.circle {
+background-color: #fee7d3;
+border-radius: 50%;
+cursor: pointer;
+height: 380px;
+left: 10px;
+pointer-events: none;
+position: absolute;
+top: 210px;
+width: 580px;
+}
+.image {
+pointer-events: none;
+position: relative;
+transform: translateY(20px) scale(1.15);
+transform-origin: 50% bottom;
+transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cutekut:hover .image {
+transform: translateY(0) scale(1.2);
+}
+
+.image {
+left: -46px;
+top: 174px;
+width: 444px;
+}
+
+.divider {
+background-color: #ca6060;
+padding: 1.5px;
+height: 1px;
+width: 160px;
+margin-left: 40px;
+color: #fff;
+margin-top: -450px!important;
+
+}
+.name {
+color: #ffffff;
+font-size: 36px;
+font-weight: 600;
+margin-top: 16px;
+text-align: center;
+margin-top: -450px!important;
+}
+.title {
+color: #ffffff;
+font-family: arial;
+font-size: 14px;
+font-style: italic;
+margin-top: 4px;
+margin-top: -450px!important;
+}
+   </style>

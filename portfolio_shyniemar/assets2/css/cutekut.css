@@ -1,0 +1,708 @@
+/* Define CSS variables at the root level for easy color management */
+:root {
+    --main-color: #334B35 /* Main text color */
+    --link-color: rgb(127, 129, 12); /* Link color */
+    --hover-color: rgb(233, 254, 72); /* Link hover color */
+    --back-to-top-bg: rgb(239, 243, 27); /* Back to top button background */
+    --header-bg: #fff; /* Header background color */
+    --header-box-shadow: 0px 2px 15px rgb(12, 129, 53); /* Header box shadow */
+    --logo-bg: #334B35; /* Logo background color */
+    --navbar-bg:#334B35; /* Navbar background color */
+    --navbar-active-color: rgb(12, 129, 53); /* Navbar active link color */
+    --navbar-hover-color: rgb(183, 208, 17); /* Navbar link hover color */
+    --dropdown-bg: #fff; /* Dropdown background color */
+    --dropdown-hover-color: #4badea; /* Dropdown link hover color */
+    --mobile-nav-bg: #334B35;/* Mobile navbar background color */
+    --hero-bg: #fff;
+    --hero-overlay: rgba(0, 0, 0, 0.6); /* Hero overlay color */
+    --btn-bg: #f8f12b; /* Button background color */
+    --btn-border: #0b8c50; /* Button border color */
+    --section-bg: #f6f6f7; /* Section background color */
+    --section-title-color: #0c762c; /* Section title color */
+    --team-bg: #f6f6f7; /* Team section background color */
+    --team-title-color: #25257f; /* Team section title color */
+    --team-hover-bg: #405c78; /* Team member hover background color */
+    --team-hover-color: #fff; /* Team member hover text color */
+    --clients-bg: #34495e; /* Clients section background color */
+    --about-title-color: #1b3887; /* About section title color */
+    --breadcrumbs-bg: #f6f6f7; /* Breadcrumbs background color */
+    --breadcrumbs-text-color: #4f4c55; /* Breadcrumbs text color */
+  }
+  
+  /* General styling */
+  body {
+    color: var(--main-color); /* Main text color */
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal; 
+  }
+  
+  /* Links */
+  a {
+    color: var(--link-color); /* Link color */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  a:hover {
+    color: var(--hover-color); /* Link hover color */
+    text-decoration: none; /* Remove underline on hover */
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6, p {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+    
+  }
+  
+  .navbar .nav-link  {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .navbar span {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .libre-baskerville-regular-italic {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  /* Back to top button */
+  .back-to-top {
+    position: fixed; /* Fixed position */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Initially transparent */
+    right: 15px; /* Distance from the right */
+    bottom: 15px; /* Distance from the bottom */
+    z-index: 996; /* Layer order */
+    background: var(--back-to-top-bg); /* Background color */
+    width: 40px; /* Button width */
+    height: 40px; /* Button height */
+    border-radius: 50px; /* Border radius for rounded shape */
+    transition: all 0.4s; /* Smooth transition effect */
+  }
+  
+  .back-to-top i {
+    font-size: 28px; /* Icon size */
+    color: #fff; /* Icon color */
+    line-height: 0; /* Center the icon vertically */
+  }
+  
+  .back-to-top:hover {
+    background: var(--back-to-top-bg); /* Hover background color */
+    color: var(--back-to-top-bg); /* Hover text color */
+  }
+  
+  .back-to-top.active {
+    visibility: visible; /* Show the button when active */
+    opacity: 1; /* Make it fully visible */
+  }
+  
+  /* Media query for small screens */
+  @media screen and (max-width: 768px) {
+    [data-aos-delay] {
+      transition-delay: 0 !important; /* Adjust transition delay */
+    }
+  }
+  
+  /* Header styles */
+  #header {
+    transition: all 0.5s; /* Smooth transition effect */
+    z-index: 997; /* Layer order */
+    transition: all 0.5s; /* Smooth transition effect */
+    top: 20px; /* Distance from the top */
+  }
+  
+  #header .header-container {
+    background: var(--header-bg); /* Header background color */
+  }
+  
+  #header.header-scrolled {
+    background: var(--header-bg); /* Header background color when scrolled */
+    box-shadow: var(--header-box-shadow); /* Header box shadow */
+    top: 0; /* Stick to the top when scrolled */
+  }
+  
+  #header .logo {
+    overflow: hidden; /* Hide overflowing content */
+    padding: 22px 18px 12px 30px; /* Logo padding */
+    background: var(--logo-bg); /* Logo background color */
+    padding-left: 2%; /* Left padding */
+  }
+  
+  #header .logo h1 {
+    font-size: 22px; /* Logo font size */
+    padding: 0; /* Reset padding */
+    line-height: 1; /* Logo line height */
+    font-weight: 700; /* Logo font weight */
+    font-family: "Poppins", sans-serif; /* Logo font family */
+  }
+  
+  #header .logo h1 a,
+  #header .logo h1 a:hover {
+    color: #fff; /* Logo text color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  #header .logo img {
+    padding: 0; /* Reset padding */
+    margin: 0; /* Reset margin */
+    max-height: 40px; /* Max height for logo image */
+  }
+  
+  /* Media query for medium screens */
+  @media (max-width: 992px) {
+    #header {
+      box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); /* Header box shadow */
+      top: 0; /* Stick to the top */
+      background: var(--navbar-bg); /* Navbar background color */
+    }
+  
+    #header.header-scrolled,
+    #header .header-container {
+      background: var(--navbar-bg); /* Header background color when scrolled */
+    }
+  
+    #header .logo {
+      padding-left: 0; /* Reset left padding */
+    }
+  
+    #header .logo h1 {
+      font-size: 24px; /* Logo font size */
+    }
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    padding: 0; /* Reset padding */
+  }
+  
+  .navbar ul {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    display: flex; /* Flex layout */
+    list-style: none; /* Remove default list style */
+    align-items: center; /* Align items vertically */
+  }
+  
+  .navbar li {
+    position: relative; /* Set position to relative */
+  }
+  
+  .navbar a,
+  .navbar a:focus {
+    display: flex; /* Flex layout */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space between items */
+    padding: 10px 0 10px 30px; /* Padding */
+    color: var(--navbar-active-color); /* Navbar link color */
+    transition: 0.3s; /* Smooth transition effect */
+    font-size: 13px; /* Font size */
+    font-weight: 500; /* Font weight */
+    text-transform: uppercase; /* Uppercase text */
+    font-family: "Poppins", sans-serif; /* Font family */
+    white-space: nowrap; /* Prevent line breaks */
+  }
+  
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px; /* Icon font size */
+    line-height: 0; /* Center the icon vertically */
+    margin-left: 5px; /* Left margin */
+  }
+  
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: var(--navbar-hover-color); /* Navbar link hover color */
+  }
+  
+  .navbar .signup,
+  .navbar .signup:focus {
+    background: var(--navbar-bg); /* Background color */
+    padding: 10px 25px; /* Padding */
+    margin-left: 30px; /* Left margin */
+    margin-right: 15px; /* Right margin */
+    border-radius: 50px; /* Border radius */
+    color: #fff; /* Text color */
+  }
+  
+  .navbar .signup:hover,
+  .navbar .signup:focus:hover {
+    color: #fff; /* Text color on hover */
+    background: var(--navbar-bg); /* Background color on hover */
+  }
+  
+  .navbar .dropdown ul {
+    display: block; /* Display block */
+    position: absolute; /* Position absolute */
+    left: 14px; /* Left position */
+    top: calc(100% + 30px); /* Top position */
+    margin: 0; /* Reset margin */
+    padding: 10px 0; /* Padding */
+    z-index: 99; /* Layer order */
+    opacity: 0; /* Initial opacity */
+    visibility: hidden; /* Initially hidden */
+    background: var(--dropdown-bg); /* Dropdown background color */
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25); /* Dropdown box shadow */
+    transition: 0.3s; /* Smooth transition effect */
+  }
+  
+  .navbar .dropdown ul li {
+    min-width: 200px; /* Minimum width */
+  }
+  
+  .navbar .dropdown ul a {
+    padding: 10px 20px; /* Padding */
+    text-transform: none; /* Text transform */
+    font-weight: 500; /* Font weight */
+  }
+  
+  .navbar .dropdown ul a i {
+    font-size: 12px; /* Icon font size */
+  }
+  
+  .navbar .dropdown ul a:hover,
+  .navbar .dropdown ul .active:hover,
+  .navbar .dropdown ul li:hover>a {
+    color: var(--dropdown-hover-color); /* Dropdown link hover color */
+  }
+  
+  .navbar .dropdown:hover>ul {
+    opacity: 1; /* Make the dropdown visible */
+    top: 100%; /* Position at the bottom */
+    visibility: visible; /* Make it visible */
+  }
+  
+  .navbar .dropdown .dropdown ul {
+    top: 0; /* Position at the top */
+    left: calc(100% - 30px); /* Position relative to the parent */
+    visibility: hidden; /* Initially hidden */
+  }
+  
+  .navbar .dropdown .dropdown:hover>ul {
+    opacity: 1; /* Make the dropdown visible */
+    top: 0; /* Position at the top */
+    left: 100%; /* Position relative to the parent */
+    visibility: visible; /* Make it visible */
+  }
+  
+  /* Media query for large screens */
+  @media (max-width: 1366px) {
+    .navbar .dropdown .dropdown ul {
+      left: -90%; /* Adjust left position */
+    }
+  
+    .navbar .dropdown .dropdown:hover>ul {
+      left: -100%; /* Adjust left position on hover */
+    }
+  }
+  
+  /* Mobile navigation toggle button */
+  .mobile-nav-toggle {
+    color: #fff; /* Text color */
+    font-size: 28px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    display: none; /* Initially hidden */
+    line-height: 0; /* Center the icon vertically */
+    transition: 0.5s; /* Smooth transition effect */
+  }
+  
+  @media (max-width: 991px) {
+    .mobile-nav-toggle {
+      display: block; /* Display block */
+    }
+  
+    .navbar ul {
+      display: none; /* Initially hidden */
+    }
+  }
+  
+  /* Mobile navbar */
+  .navbar-mobile {
+    position: fixed; /* Fixed position */
+    overflow: hidden; /* Overflow hidden */
+    top: 0; /* Position from the top */
+    right: 0; /* Position from the right */
+    left: 0; /* Position from the left */
+    bottom: 0; /* Position from the bottom */
+    background: var(--mobile-nav-bg); /* Background color */
+    transition: 0.3s; /* Smooth transition effect */
+    z-index: 999; /* Layer order */
+  }
+  
+  .navbar-mobile .mobile-nav-toggle {
+    position: absolute; /* Absolute position */
+    top: 15px; /* Distance from the top */
+    right: 15px; /* Distance from the right */
+  }
+  
+  .navbar-mobile ul {
+    display: block; /* Display block */
+    position: absolute; /* Absolute position */
+    top: 55px; /* Distance from the top */
+    right: 15px; /* Distance from the right */
+    bottom: 15px; /* Distance from the bottom */
+    left: 15px; /* Distance from the left */
+    padding: 10px 0; /* Padding */
+    background-color: #fff; /* Background color */
+    overflow-y: auto; /* Enable vertical scrollbar if needed */
+    transition: 0.3s; /* Smooth transition effect */
+  }
+  
+  .navbar-mobile a,
+  .navbar-mobile a:focus {
+    padding: 10px 20px; /* Padding */
+    font-size: 15px; /* Font size */
+    color: var(--link-color); /* Link color */
+  }
+  
+  .navbar-mobile a:hover,
+  .navbar-mobile .active,
+  .navbar-mobile li:hover>a {
+    color: var(--hover-color); /* Link hover color */
+  }
+  
+  .navbar-mobile .getstarted,
+  .navbar-mobile .getstarted:focus {
+    margin: 15px; /* Margin */
+  }
+  
+  .navbar-mobile .dropdown ul {
+    position: static; /* Static position */
+    display: none; /* Initially hidden */
+    margin: 10px 20px; /* Margin */
+    padding: 10px 0; /* Padding */
+    z-index: 99; /* Layer order */
+    opacity: 1; /* Full opacity */
+    visibility: visible; /* Make it visible */
+    background: #fff; /* Background color */
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25); /* Box shadow */
+  }
+  
+  .navbar-mobile .dropdown ul li {
+    min-width: 200px; /* Minimum width */
+  }
+  
+  .navbar-mobile .dropdown ul a {
+    padding: 10px 20px; /* Padding */
+  }
+  
+  .navbar-mobile .dropdown ul a i {
+    font-size: 12px; /* Icon font size */
+  }
+  
+  .navbar-mobile .dropdown ul a:hover,
+  .navbar-mobile .dropdown ul .active:hover,
+  .navbar-mobile .dropdown ul li:hover>a {
+    color: var(--link-color); /* Link hover color */
+  }
+  
+  .navbar-mobile .dropdown>.dropdown-active {
+    display: block; /* Display block */
+  }
+  
+  /* Hero section */
+  #hero {
+    width: 100%; /* Full width */
+    height: 80vh; /* 80% of the viewport height */
+    background: var(--hero-bg) fixed center center; /* Hero background image */
+    background-size: cover; /* Cover the entire container */
+    position: relative; /* Relative position */
+  }
+  
+  #hero .container {
+    padding-top: 80px; /* Top padding */
+  }
+  
+  #hero:before {
+    content: ""; /* Empty content */
+    background: var(--hero-overlay); /* Hero overlay color */
+    position: absolute; /* Absolute position */
+    bottom: 0; /* Position from the bottom */
+    top: 0; /* Position from the top */
+    left: 0; /* Position from the left */
+    right: 0; /* Position from the right */
+  }
+  
+  #hero h1 {
+    margin: 0 0 10px 0; /* Margin */
+    font-size: 48px; /* Font size */
+    font-weight: 700; /* Font weight */
+    line-height: 56px; /* Line height */
+    color: #fff; /* Text color */
+  }
+  
+  #hero h2 {
+    color: #eee; /* Text color */
+    margin-bottom: 40px; /* Bottom margin */
+    font-size: 15px; /* Font size */
+    font-weight: 500; /* Font weight */
+    font-family: "Open Sans", sans-serif; /* Font family */
+    letter-spacing: 0.5px; /* Letter spacing */
+    text-transform: uppercase; /* Uppercase text */
+  }
+  
+  #hero .btn-get-started {
+    font-family: "Poppins", sans-serif; /* Font family */
+    text-transform: uppercase; /* Uppercase text */
+    font-weight: 500; /* Font weight */
+    font-size: 14px; /* Font size */
+    letter-spacing: 1px; /* Letter spacing */
+    display: inline-block; /* Inline block */
+    padding: 8px 28px; /* Padding */
+    border-radius: 50px; /* Border radius */
+    transition: 0.5s; /* Smooth transition effect */
+    margin: 10px; /* Margin */
+    border: 2px solid #fff; /* Border style */
+    color: #fff; /* Text color */
+  }
+  
+  #hero .btn-get-started:hover {
+    background: var(--btn-bg); /* Button background color on hover */
+    border: 2px solid var(--btn-border); /* Border color on hover */
+  }
+  
+  @media (min-width: 1024px) {
+    #hero {
+      background-attachment: fixed; /* Fixed background attachment */
+    }
+  }
+  
+  /* General section styles */
+  section {
+    padding: 60px 0; /* Padding */
+    overflow: hidden; /* Hide overflowing content */
+  }
+  
+  .section-bg {
+    background-color: var(--section-bg); /* Section background color */
+  }
+  
+  .section-title {
+    padding-bottom: 30px; /* Bottom padding */
+  }
+  
+  .section-title h2 {
+    font-size: 32px; /* Font size */
+    font-weight: bold; /* Font weight */
+    text-transform: uppercase; /* Uppercase text */
+    margin-bottom: 20px; /* Bottom margin */
+    padding-bottom: 20px; /* Bottom padding */
+    position: relative; /* Relative position */
+  }
+  
+  .section-title h2::after {
+    content: ""; /* Empty content */
+    position: absolute; /* Absolute position */
+    display: block; /* Display block */
+    width: 50px; /* Width */
+    height: 3px; /* Height */
+    background: var(--section-title-color); /* Background color */
+    bottom: 0; /* Position from the bottom */
+    left: 0; /* Position from the left */
+  }
+  
+  .section-title p {
+    margin-bottom: 0; /* Bottom margin */
+  }
+  
+  /* Team section styles */
+  .team-bg {
+    background-color: var(--team-bg); /* Team section background color */
+  }
+  
+  .team-title {
+    text-align: center; /* Center text alignment */
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Column direction */
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center justify content */
+    height: 100%; /* Full height */
+    color: #fff; /* Text color */
+  }
+  
+  
+  
+  .team-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .team-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #25257f;
+    bottom: 0;
+    left: 0;
+  }
+    .team .member h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #fcfcfc;
+}
+  .team-title p {
+    margin-bottom: 0;
+  }
+.team .member {
+    position: relative;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Add border-color transition */
+    border: 2px solid transparent;
+  }
+  
+  .team .member:hover {
+    transform: translateY(-10px);
+    border-color: #0b0b42;
+    background: #405c78;
+    color: #fff;
+  }
+
+  .team .member:hover h4 {
+    color: #fff; /* Text color when container is hovered */
+  }
+
+
+  /* spacing section*/
+  .clients {
+    background: #34495e;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .clients img {
+    width: 40%;
+    filter: grayscale(100);
+    transition: all 0.4s ease-in-out;
+    display: inline-block;
+    padding: 15px 0;
+  }
+  
+  .clients img:hover {
+    filter: none;
+    transform: scale(1.1);
+  }
+  
+    /*--------------------------------------------------------------
+    # About
+    --------------------------------------------------------------*/
+    .about .content h2 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 60px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    
+    .about .content h3 {
+      font-weight: 500;
+      line-height: 32px;
+      font-size: 24px;
+    }
+    
+    .about .content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .about{
+        background-color: #F6EEE1;
+    }
+    
+    .about .content ul li {
+      padding: 10px 0 0 28px;
+      position: relative;
+    }
+    
+    .about .content ul i {
+      left: 0;
+      top: 7px;
+      position: absolute;
+      font-size: 20px;
+      color: #1b3887;
+    }
+    
+    .about .content p:last-child {
+      margin-bottom: 0;
+    }
+    
+    /*--------------------------------------------------------------
+    # blank space
+    --------------------------------------------------------------*/
+    .blackspace {
+      background: #000;
+      height: 20vh;
+      padding: 60px 0 20px 0;
+      z-index: 1;
+    }
+
+  /*--------------------------------------------------------------
+  # Breadcrumbs
+  --------------------------------------------------------------*/
+  .breadcrumbs {
+    padding: 15px 0;
+    background: #f6f6f7;
+    margin-top: 100px;
+  }
+  
+  .breadcrumbs h2 {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 400;
+  }
+  
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .breadcrumbs ol li+li {
+    padding-left: 10px;
+  }
+  
+  .breadcrumbs ol li+li::before {
+    display: inline-block;
+    padding-right: 10px;
+    color: #4f4c55;
+    content: "/";
+  }
+  
+  @media (max-width: 768px) {
+    .breadcrumbs .d-flex {
+      display: block !important;
+    }
+  
+    .breadcrumbs ol {
+      display: block;
+    }
+  
+    .breadcrumbs ol li {
+      display: inline-block;
+    }
+  }
+  
+
+
+  
