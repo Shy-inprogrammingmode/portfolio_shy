@@ -1,0 +1,61 @@
+<section id="cutedayang" class="cutedayang">
+    <!-- yari dugaing section nasab -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+            <?php
+            // Include the database connection
+            include '../includes/conn.php';
+
+            // Fetch project images from the database
+            $sql = "SELECT * FROM project";
+            $stmt = $Conn->query($sql);
+            $projectImages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Calculate the number of carousel slides
+            $numSlides = ceil(count($projectImages) / 3);
+
+            // Counter for carousel indicators
+            $indicatorCounter = 0;
+
+            // Loop through the number of slides and create carousel indicators
+            for ($i = 0; $i < $numSlides; $i++) {
+                echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . '"';
+                echo ($i == 0) ? ' class="active" aria-current="true"' : '';
+                echo ' aria-label="Slide ' . ($i + 1) . '"></button>';
+            }
+            ?>
+        </div>
+        <div class="carousel-inner">
+            <?php
+            // Loop through the number of slides
+            for ($i = 0; $i < $numSlides; $i++) {
+                echo '<div class="carousel-item';
+                echo ($i == 0) ? ' active">' : '">'; // Set the first slide as active
+                echo '<div class="card-grid">';
+                // Loop through three project images for each slide
+                for ($j = $i * 3; $j < min(($i + 1) * 3, count($projectImages)); $j++) {
+                    $imagePath = "admin/uploads/" . $projectImages[$j]['project_image'];
+                    echo '<a class="card" data-aos="flip-left" href="#">';
+                    echo '<div class="card__background" style="background-image: url(\'' . $imagePath . '\')"></div>';
+                    echo '<div class="card__content">';
+                    echo '<p class="card__category">' . $projectImages[$j]['category'] . '</p>';
+                    echo '<h3 class="card__heading">' . $projectImages[$j]['description'] . '</h3>';
+                    echo '</div></a>';
+                }
+                echo '</div></div>';
+            }
+            ?>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+</main>
