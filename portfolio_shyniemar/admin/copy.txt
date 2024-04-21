@@ -1,0 +1,85 @@
+<?php
+include '../includes/conn.php'; // Fix the path to the conn.php file
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $intro_name = $_POST['intro_name'];
+    $intro_description = $_POST['intro_description'];
+    $intro_date_of_birth = $_POST['intro_date_of_birth'];
+    $intro_role = $_POST['intro_role'];
+    $intro_dialect = $_POST['intro_dialect'];
+    $intro_image = $_POST['intro_image'];
+
+    $sql = "INSERT INTO intro (name, description, dob, role, dialect, image) 
+            VALUES (?, ?, ?, ?, ?, ?)";
+
+    $stmt = $Conn->prepare($sql);
+    $stmt->execute([$intro_name, $intro_description, $intro_date_of_birth, $intro_role, $intro_dialect, $intro_image]);
+
+    if ($stmt) {
+        echo "New record created successfully";
+    } else {
+        $errorInfo = $stmt->errorInfo();
+        echo "Error: " . $errorInfo[2]; 
+    }
+}
+?>
+
+<?php include '../includes/adminheader.php';?>
+
+
+<style>
+    .row{
+       margin-left: auto;
+    }
+</style>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-9 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">INTRODUCTION SECTION</h4>
+                    <p class="card-description">
+                        Add, delete, and update introduction information
+                    </p>
+                    <form method="post" action="">
+                        <div class="form-group">
+                            <label for="intro_name">Name</label>
+                            <input type="text" class="form-control" id="intro_name" name="intro_name" placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            <label for="intro_description">Description</label>
+                            <textarea class="form-control" id="intro_description" name="intro_description" rows="3" placeholder="Enter description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="intro_date_of_birth">Date of Birth</label>
+                            <input type="date" class="form-control" id="intro_date_of_birth" name="intro_date_of_birth">
+                        </div>
+                        <div class="form-group">
+                            <label for="intro_role">Role</label>
+                            <input type="text" class="form-control" id="intro_role" name="intro_role" placeholder="Enter role">
+                        </div>
+                        <div class="form-group">
+                            <label for="intro_dialect">Dialect</label>
+                            <input type="text" class="form-control" id="intro_dialect" name="intro_dialect" placeholder="Enter dialect">
+                        </div>
+                        <div class="form-group">
+                            <label for="intro_image">Image URL</label>
+                            <input type="text" class="form-control" id="intro_image" name="intro_image" placeholder="Enter image URL">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="vendors/js/vendor.bundle.base.js"></script>
+<script src="vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="js/off-canvas.js"></script>
+<script src="js/hoverable-collapse.js"></script>
+<script src="js/template.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/todolist.js"></script>
+</body>
+</html>
